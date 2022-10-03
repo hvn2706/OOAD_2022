@@ -419,7 +419,7 @@
 
         \textbf{Business rules:}
         \begin{itemize}
-            \item User can only like or dislike a job description post once.
+            \item User can only have one like or dislike on a job description post.
             \item User can leave multiple comments on a job description post.
         \end{itemize}
 
@@ -436,7 +436,7 @@
         \textbf{Actor:}
         \begin{itemize}
             \item Employer.
-            \item Backend system.
+            \item Backend service and database.
         \end{itemize}
 
         \textbf{Trigger:}
@@ -458,7 +458,7 @@
 
         \textbf{Flow of events:}
         \begin{itemize}
-            \item Employer go to create recruitment announcement page.
+            \item Employer click create recruitment announcement button.
             \item Employer fill in job description information.
             \item Employer click post button.
             \item System save job description information.
@@ -468,8 +468,8 @@
         \textbf{Alternative flow:}
         \begin{itemize}
             \item Employer stop editing job description information and close browser/tab or direct to another site or press cancel button.
-            \item System display a warning message to ask employer wether to save a draft or not.
-            \item Employer choose to save a draft or not. If yes, system save job description information as a draft in employer's profile page. If no, system discard job description information.
+            \item System display a warning message to ask employer weather to save a draft or not.
+            \item Employer choose to save a draft or not. If yes, system save job description information as a draft in user's local storage. If no, system discard job description information.
         \end{itemize}
 
         \textbf{Exception flow:}
@@ -486,10 +486,197 @@
         \end{itemize}
 
         \subsubsection{View job description post}
+        \textbf{Description:}
+        \begin{itemize}
+            \item User go to job description post page and view the job description post.
+        \end{itemize}
+
+        \textbf{Actor:}
+        \begin{itemize}
+            \item Applicant.
+            \item Employer.
+            \item Administrator.
+            \item Visitor.
+            \item Backend service and database.
+        \end{itemize}
+
+        \textbf{Trigger:}
+        \begin{itemize}
+            \item User wanting to view a job description post.
+            \item User search for a specific job description post.
+        \end{itemize}
+
+        \textbf{Precondition:}
+        \begin{itemize}
+            \item User has internet connection.
+            \item Database service is available.
+        \end{itemize}
+
+        \textbf{Postcondition:}
+        \begin{itemize}
+            \item Job description post is displayed.
+        \end{itemize}
+
+        \textbf{Flow of events:}
+        \begin{itemize}
+            \item User goes to the website.
+            \item User type a keyword related to the job in the search box.
+            \item The website displays several job descriptions posts.
+            \item User selects a job description post.
+            \item The website displays the full job description post.
+        \end{itemize}
+
+        \textbf{Alternative flow:}
+        \begin{itemize}
+            \item Flow 1:
+            \begin{itemize}
+                \item User goes to the website.
+                \item User type a keyword related to the job in the search box.
+                \item The website displays several job descriptions posts.
+                \item User selects a job description post.
+                \item The website displays the full job description post.
+            \end{itemize}
+            \item Flow 2:
+            \begin{itemize}
+                \item User click on a link to a job description post.
+                \item The website displays the full job description post.
+            \end{itemize}
+        \end{itemize}
+
+        \textbf{Exception flow:}
+        \begin{itemize}
+            \item Flow 1:
+            \begin{itemize}
+                \item User cannot find any job description posts.
+                \item Display a notification message.
+            \end{itemize}
+            \item Flow 2:
+            \begin{itemize}
+                \item User accesses a deleted job description post.
+                \item Display an error message.
+            \end{itemize}
+        \end{itemize}
+
+        \textbf{Business rules:}
+        \begin{itemize}
+            \item User cannot access a deleted job description post.
+        \end{itemize}
 
         \subsubsection{Edit Job description post}
+        \textbf{Description:}
+        \begin{itemize}
+            \item Employer wants to change the content of a job description post.
+        \end{itemize}
+
+        \textbf{Actor:}
+        \begin{itemize}
+            \item Employer.
+            \item Backend service and database.
+        \end{itemize}
+
+        \textbf{Trigger:}
+        \begin{itemize}
+            \item Employer wants to change the content of a job description post.
+        \end{itemize}
+
+        \textbf{Precondition:}
+        \begin{itemize}
+            \item Employer has an employer account.
+            \item Employer logged in.
+            \item Employer has internet connection.
+            \item Employer is viewing his/her job description post.
+        \end{itemize}
+
+        \textbf{Postcondition:}
+        \begin{itemize}
+            \item Employer has changed the content of a job description post.
+        \end{itemize}
+
+        \textbf{Flow of events:}
+        \begin{itemize}
+            \item User accesses the website.
+            \item User selects a job description post.
+            \item User click edit button.
+            \item User modifies the content of the job description post.
+            \item User saves the changes.
+            \item The change has updated on the system.
+            \item System display job description post page.
+        \end{itemize}
+
+        \textbf{Alternative flow:}
+        \begin{itemize}
+            \item User accesses the website.
+            \item User selects a job description post.
+            \item User click edit button.
+            \item User modifies the content of the job description post.
+            \item User close browser/tab or direct to another site or press cancel button.
+            \item System display a warning message to ask user if the user wants to keep editing. If yes, the browser cancel closing/redirect keep editing. If no, system discard the changes.
+        \end{itemize}
+
+        \textbf{Exception flow:}
+        \begin{itemize}
+            \item User attempt to open more than 1 editor for 1 post at a time point.
+            \item Display an error message.
+        \end{itemize}
+
+        \textbf{Business rules:}
+        \begin{itemize}
+            \item User can only open an editor for one post at a time point.
+            \item User cannot edit other employer's job description posts.
+        \end{itemize}
 
         \subsubsection{Delete Job description post}
+        \textbf{Description:}
+        \begin{itemize}
+            \item User, as an employer, delete a job description posts.
+            \item User, as an administrator, delete a post that is considered not a job description.
+        \end{itemize}
+
+        \textbf{Actor:}
+        \begin{itemize}
+            \item Employer.
+            \item Administrator.
+            \item Backend service and database.
+        \end{itemize}
+
+        \textbf{Trigger:}
+        \begin{itemize}
+            \item A job description post has expired or no longer needed.
+        \end{itemize}
+
+        \textbf{Precondition:}
+        \begin{itemize}
+            \item User has an internet connection.
+            \item User has an employer/administration account.
+            \item User logged in.
+            \item The employer owned the job description post (this is not required for administration).
+        \end{itemize}
+
+        \textbf{Postcondition:}
+        \begin{itemize}
+            \item A job description post is removed from the database.
+        \end{itemize}
+        
+        \textbf{Flow of events:}
+        \begin{itemize}
+            \item User accesses the website.
+            \item User selects a description post or view a description post.
+            \item User selects the remove option.
+            \item The system ask for confirmation.
+            \item The description post is removed from the database.
+        \end{itemize}
+
+        \textbf{Exception flow:}
+        \begin{itemize}
+            \item User attempt to delete a deleted job description post.
+            \item Display an error message.
+        \end{itemize}
+
+        \textbf{Business rules:}
+        \begin{itemize}
+            \item User can use only one delete request on one job description post.
+            \item User cannot delete other employer's job description post (except administrator).
+        \end{itemize}
 
         \subsubsection{Delete Account}
         \textbf{Description:}
@@ -503,7 +690,7 @@
             \item Employer.
             \item Applicant.
             \item Administrator.
-            \item Backend system.
+            \item Backend authentication.
         \end{itemize}
         
         \textbf{Trigger:}
@@ -558,7 +745,59 @@
         \end{itemize}
 
         \subsubsection{Searching tool}
-\section{}
+        \textbf{Description:}
+        \begin{itemize}
+            \item User search information from the website about job descriptions, employers, and applicants.
+        \end{itemize}
 
+        \textbf{Actor:}
+        \begin{itemize}
+            \item Applicant.
+            \item Employer.
+            \item Administrator.
+            \item Visitor.
+            \item Backend search engine.
+        \end{itemize}
+
+        \textbf{Trigger:}
+        \begin{itemize}
+            \item User wants to search for information about a typical job, an employer, or an applicant.
+        \end{itemize}
+
+        \textbf{Precondition:}
+        \begin{itemize}
+            \item User has internet connection.
+        \end{itemize}
+
+        \textbf{Postcondition:}
+        \begin{itemize}
+            \item The website displays several results about the information user is looking for.
+        \end{itemize}
+        
+        \textbf{Flow of events:}
+        \begin{itemize}
+            \item User accesses the website.
+            \item User clicks the search bar and type keywords in the search box.
+            \item The website displays several results about the information user is looking for.
+        \end{itemize}
+
+        \textbf{Alternative flow:}
+        \begin{itemize}
+            \item User click on a link to a search result.
+            \item The website displays several results about the information user is looking for.
+        \end{itemize}
+
+        \textbf{Exception flow:}
+        \begin{itemize}
+            \item The search engine does not find any information.
+            \item The system displays a message not finding any job description post or employer or applicant.
+        \end{itemize}
+
+        \textbf{Business rules:}
+        \begin{itemize}
+            \item The search engine will search for information in the database.
+            \item The search engine will search for information in the job description post, employer, and applicant.
+        \end{itemize}
+\section{}
 
 \end{document}
