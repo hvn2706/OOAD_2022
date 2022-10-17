@@ -1,5 +1,4 @@
 \documentclass[a4paper]{article}
-\usepackage[utf8]{vietnam}
 \usepackage[left=80pt,right=80pt,top=60pt,bottom=60pt]{geometry}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{graphicx}
@@ -51,7 +50,7 @@
 
     \subsection{Use-case model}
 
-    \begin{figure}[h]
+    \begin{figure}[ht]
         \centering
         \includegraphics[width=0.8\textwidth]{usecase_model.drawio.png}
         \caption{Use-case model}
@@ -798,6 +797,140 @@
             \item The search engine will search for information in the database.
             \item The search engine will search for information in the job description post, employer, and applicant.
         \end{itemize}
-\section{}
+\section{Use-case realisations}
+    \subsection{Sequence diagrams}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{view_profile.png}
+        \caption{Sequence diagram for the use profile use case (basic flow)}
+        \label{fig:fig2}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{view_profile (exception).png}
+        \caption{Sequence diagram for the use profile use case (exception flow)}
+        \label{fig:fig3}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{create_account.png}
+        \caption{Sequence diagram for the create account use case (basic flow)}
+        \label{fig:fig4}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{create_account (unconfirmed email).png}
+        \caption{Sequence diagram for the create account use case (unconfirmed email exception)}
+        \label{fig:fig5}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{create_account_(user exist).png}
+        \caption{Sequence diagram for the create account use case (user exist exception)}
+        \label{fig:fig6}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{login.png}
+        \caption{Sequence diagram for the login use case (basic flow)}
+        \label{fig:fig7}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{login (alternative).png}
+        \caption{Sequence diagram for the login use case (alternative flow)}
+        \label{fig:fig8}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{login (exception).png}
+        \caption{Sequence diagram for the login use case (exception flow)}
+        \label{fig:fig9}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{update_profile.png}
+        \caption{Sequence diagram for the update profile use case}
+        \label{fig:fig10}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{apply for a job.png}
+        \caption{Sequence diagram for the job description application use case}
+        \label{fig:fig11}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{interact_jd.png}
+        \caption{Sequence diagram for the job description interaction use case}
+        \label{fig:fig12}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{post_job_description.png}
+        \caption{Sequence diagram for the post job description use case}
+        \label{fig:fig13}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{View job description .png}
+        \caption{Sequence diagram for the view job description use case}
+        \label{fig:fig14}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{Edit job description post.png}
+        \caption{Sequence diagram for the view job description use case}
+        \label{fig:fig15}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{Delete job description post.png}
+        \caption{Sequence diagram for the delete job description use case}
+        \label{fig:fig16}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{delete_account.png}
+        \caption{Sequence diagram for the delete account use case (basic flow)}
+        \label{fig:fig17}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{delete_account (admin).png}
+        \caption{Sequence diagram for the post job description use case (admin alternative)}
+        \label{fig:fig18}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{delete_account (exception).png}
+        \caption{Sequence diagram for the delete account use case (exception)}
+        \label{fig:fig19}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{Searching tool.png}
+        \caption{Sequence diagram for the search engine use case}
+        \label{fig:fig20}
+    \end{figure}
 
 \end{document}
