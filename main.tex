@@ -1,11 +1,13 @@
 \documentclass[a4paper]{article}
 \usepackage[left=80pt,right=80pt,top=60pt,bottom=60pt]{geometry}
 \usepackage[font=small,labelfont=bf]{caption}
+\usepackage{float}
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{array}
 \usepackage{hyperref}
+\usepackage{multirow}
 
 \setlength\parindent{0pt}
 \graphicspath{ {./imgs/} }
@@ -34,6 +36,9 @@
 \tableofcontents
 \pagebreak
 
+\listoffigures
+\pagebreak
+
 \section{Requirements}
     \subsection{Problem statement}
         \subsubsection{Problem}
@@ -50,7 +55,7 @@
 
     \subsection{Use-case model}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{usecase_model.drawio.png}
         \caption{Use-case model}
@@ -800,137 +805,264 @@
 \section{Use-case realisations}
     \subsection{Sequence diagrams}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{view_profile.png}
         \caption{Sequence diagram for the use profile use case (basic flow)}
         \label{fig:fig2}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{view_profile (exception).png}
         \caption{Sequence diagram for the use profile use case (exception flow)}
         \label{fig:fig3}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{create_account.png}
         \caption{Sequence diagram for the create account use case (basic flow)}
         \label{fig:fig4}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{create_account (unconfirmed email).png}
         \caption{Sequence diagram for the create account use case (unconfirmed email exception)}
         \label{fig:fig5}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{create_account_(user exist).png}
         \caption{Sequence diagram for the create account use case (user exist exception)}
         \label{fig:fig6}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{login.png}
         \caption{Sequence diagram for the login use case (basic flow)}
         \label{fig:fig7}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{login (alternative).png}
         \caption{Sequence diagram for the login use case (alternative flow)}
         \label{fig:fig8}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{login (exception).png}
         \caption{Sequence diagram for the login use case (exception flow)}
         \label{fig:fig9}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{update_profile.png}
         \caption{Sequence diagram for the update profile use case}
         \label{fig:fig10}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{apply for a job.png}
         \caption{Sequence diagram for the job description application use case}
         \label{fig:fig11}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{interact_jd.png}
         \caption{Sequence diagram for the job description interaction use case}
         \label{fig:fig12}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{post_job_description.png}
         \caption{Sequence diagram for the post job description use case}
         \label{fig:fig13}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{View job description .png}
         \caption{Sequence diagram for the view job description use case}
         \label{fig:fig14}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{Edit job description post.png}
         \caption{Sequence diagram for the view job description use case}
         \label{fig:fig15}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{Delete job description post.png}
         \caption{Sequence diagram for the delete job description use case}
         \label{fig:fig16}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{delete_account.png}
         \caption{Sequence diagram for the delete account use case (basic flow)}
         \label{fig:fig17}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{delete_account (admin).png}
         \caption{Sequence diagram for the post job description use case (admin alternative)}
         \label{fig:fig18}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{delete_account (exception).png}
         \caption{Sequence diagram for the delete account use case (exception)}
         \label{fig:fig19}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\textwidth]{Searching tool.png}
         \caption{Sequence diagram for the search engine use case}
         \label{fig:fig20}
     \end{figure}
+
+    \subsection{Views of participating classes}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{vopc_view_profile.png}
+        \caption{Vopc of view profile use case}
+        \label{fig:fig21}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{vopc_register.png}
+        \caption{Vopc of create account use case}
+        \label{fig:fig22}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{vopc_login.png}
+        \caption{Vopc of login use case}
+        \label{fig:fig23}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{vopc_update_profile.png}
+        \caption{Vopc of update profile use case}
+        \label{fig:fig24}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{vopc_job_application.png}
+        \caption{Vopc of job application use case}
+        \label{fig:fig25}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{vopc_post_jd.png}
+        \caption{Vopc of post job description use case}
+        \label{fig:fig26}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{vopc_view_jd.png}
+        \caption{Vopc of view job description use case}
+        \label{fig:fig27}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{vopc_edit_jd.png}
+        \caption{Vopc of edit job description use case}
+        \label{fig:fig28}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{vopc_del_jd.png}
+        \caption{Vopc of delete job description use case}
+        \label{fig:fig29}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{vopc_delacc.png}
+        \caption{Vopc of delete account use case}
+        \label{fig:fig30}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{vopc_search_engine.png}
+        \caption{Vopc of search engine use case}
+        \label{fig:fig31}
+    \end{figure}
+
+\section{Use case design}
+
+    \subsection{Identify classes}
+    \begin{center}
+        \begin{tabular} { | l | l | }
+            \hline
+            \textbf{Analysis class} & \textbf{Design element} \\
+            \hline
+            Account & Account, Database subsystem \\
+            \hline
+            Job description & Job description, Database subsystem \\
+            \hline
+            UserProfileController & \multirow{16}{*}{Map directly to design classes} \\
+            \cline{1-1}
+            RegistrationController & \\
+            \cline{1-1}
+            LoginController & \\
+            \cline{1-1}
+            UpdateProfileController & \\
+            \cline{1-1}
+            ApplicationController & \\
+            \cline{1-1}
+            JobDescriptionController & \\
+            \cline{1-1}
+            DeletionController & \\
+            \cline{1-1} & \\
+            RegistrationForm & \\
+            \cline{1-1}
+            LoginForm & \\
+            \cline{1-1}
+            UpdateProfileForm & \\
+            \cline{1-1}
+            ApplicationForm & \\
+            \cline{1-1}
+            CreateJobDescriptionForm & \\
+            \cline{1-1}
+            EditJobDescriptionForm & \\
+            \cline{1-1}
+            DeleteJobDescriptionForm & \\
+            \cline{1-1}
+            DeleteAccountForm & \\
+            \cline{1-1}
+            SearchBarForm & \\
+            \hline
+            
+        \end{tabular}
+    \end{center}
+
 
 \end{document}
