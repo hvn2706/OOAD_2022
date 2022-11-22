@@ -41,7 +41,15 @@
                                             <h6 class="mb-0">User avatar</h6>
                                         </div>
                                         <br>
-                                        <img id="avatar">
+                                        <div class="imgUp">
+                                            <div class="imagePreview" id="avatar">
+                
+                                            </div>
+                                            <label class="btn btn-primary">
+                                                Change Avatar
+                                                <input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -51,47 +59,38 @@
                         <div class="card mb-3">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Full name</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary" id="user-full-name">
-                                        
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Email</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary" id="email">
-                                        
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Phone</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary" id="phone">
-                                        
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Education</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary" id="education">
-                                        
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row" id="my-profile-function">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-primary" type="button" id="button-edit">
-                                            Edit
+                                        <h6 class="mb-0">Full name</h6>
+                                        <input type="text" class="form-control" id="user-full-name">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h6 class="mb-0">Email</h6>
+                                        <input type="text" class="form-control" id="email">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h6 class="mb-0">Phone</h6>
+                                        <input type="text" class="form-control" id="phone">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h6 class="mb-0">Education</h6>
+                                        <input type="text" class="form-control" id="education">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-success" type="button" id="button-save">
+                                            Save change
                                         </button>
-                                        <button class="btn btn-outline-primary" type="button" id="new-organization">New organization</button>
                                     </div>
                                 </div>
                             </div>
@@ -102,32 +101,19 @@
                         <div class="card-header">
                             <b>About me</b>
                         </div>
-                        <div class="card-body" id="about-me">
-                            
-                        </div>
+                        <textarea class="form-control" id="about-me"></textarea>
                     </div>
 
                     <div class="card-mb-6">
                         <div class="card-header">
                             <b>Experiences</b>
                         </div>
-                        <div class="card-body" id="experiences">
-                            
-                        </div>
-                    </div>
-
-                    <div class="card-mb-6">
-                        <div class="card-header">
-                            <b>Organizations</b>
-                        </div>
-                        <div class="card-body" id="organizations">
-                            
-                        </div>
+                        <textarea class="form-control" id="experiences"></textarea>
                     </div>
                 </div>
             </div>
         </div>
     </body>
     <script src="script.js"></script>
-    <script src="../script.js"></script>
+    <script src="../../script.js"></script>
 </html>

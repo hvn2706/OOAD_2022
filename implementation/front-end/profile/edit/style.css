@@ -3,6 +3,11 @@ body{
     text-align: left;
     background-color: #eeeeee;   
 }
+
+input[type="text"] {
+    margin-right: 20px;
+}
+
 .main-body {
     padding: 15px;
 }

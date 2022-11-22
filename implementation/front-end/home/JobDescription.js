@@ -72,12 +72,17 @@ function createCommentListContainer(commentList, jobDescriptionId) {
     let commentListHTML = document.createElement("div");
     for (let i = 0; i < commentList.length; i++) {
         let commentItem = document.createElement("div");
-        commentItem.setAttribute("class", "comment-item");
+        commentItem.setAttribute("class", "card");
         commentItem.setAttribute("style", "padding: 10px");
         commentItem.innerHTML = `
-            <img src="data:image/png;base64,${commentList[i].ava}" alt="John" style="width:10%">
-            &emsp; ${commentList[i].name}
+        <div class="card-header">
+            <img src="data:image/png;base64,${commentList[i].ava}" alt="John" style="width:5%">
+            ${commentList[i].name}
+        </div>
+
+        <div class="card-body">
             <p>${commentList[i].comment}</p>
+        </div>
         `;
         commentListHTML.appendChild(commentItem);
     }
@@ -89,13 +94,28 @@ function createCommentListContainer(commentList, jobDescriptionId) {
     cmtContainer.appendChild(commentListHTML);
 
     let cmtInput = document.createElement("div");
+    cmtInput.setAttribute("class", "card");
     cmtInput.innerHTML = `
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
-            <label for="floatingTextarea">Comment</label>
-        </div> 
+        <div class="card-header">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="form_floating_${jobDescriptionId}" style="height: 100px"></textarea>
+                <label for="floatingTextarea">Comment</label>
+            </div>
+        </div>
+        
+        <div class="card-footer">
+            <button type="button" class="btn btn-primary" onclick="addComment(${jobDescriptionId})">Comment</button>
+        </div>
     `;
     cmtContainer.appendChild(cmtInput);
+}
+
+async function addComment(jobDescriptionId) {
+    let comment = document.getElementById(
+        `form_floating_${jobDescriptionId}`
+    ).value;
+    console.log(comment);
+    // Giang's job: change this to POST method and send the id of the job description and the comment, then GET the list of comments
 }
 
 function createJdContainer(jobDescriptionData) {
@@ -159,6 +179,10 @@ function createJdContainer(jobDescriptionData) {
                 <a class="card-link">
                     <i class="fa fa-clipboard"></i> Copy link
                 </a>
+            </button>
+
+            <button type="button" class="btn btn-primary">
+                Apply for job
             </button>
         </div>
         <div id="cmt_${jobDescriptionData.id}_container"></div>
