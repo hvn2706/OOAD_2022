@@ -74,26 +74,77 @@ function showOrgs(orgs) {
 
     for (var i = 0; i < orgs.length; i++) {
         var org = orgs[i];
-        var orgField = document.createElement("div");
-        orgField.className = "container-fluid";
+        showOrg(org, orgsField);
+    }
+}
+
+function showOrg(org, orgsField) {
+    var orgField = document.createElement("div");
+    orgField.className = "container-fluid";
+
+    if (userId == "me") {
         orgField.innerHTML = `
-            <div class="row" style="padding: 10px">
-                <div class="col-md-1">
-                    <img src="data:image/png;base64,${org.OrganizationAvatar}" style="width:80%; height: 60px">
+                <div class="row" style="padding: 10px">
+                    <div class="col-md-1">
+                        <img src="data:image/png;base64,${org.OrganizationAvatar}" style="width:80%; height: 60px">
+                    </div>
+                    <div class="col-md-3">
+                        <a class="nav-item" href="/organization?id=${org.UUID}"> ${org.OrganizationName} </a>
+                    </div>
+                    <div class="col-md-5">
+                        <a class="btn btn-outline-danger btn-sm" id="del_${org.UUID}">Delete organization</a>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <a class="nav-item" href="/organization?id=${org.UUID}"> ${org.OrganizationName} </a>
+            `;
+        orgsField.appendChild(orgField);
+
+        document.getElementById(`del_${org.UUID}`).onclick = () => {
+            // console.log(org.UUID);
+            delOrganization(org.UUID);
+        };
+    } else {
+        orgField.innerHTML = `
+                <div class="row" style="padding: 10px">
+                    <div class="col-md-1">
+                        <img src="data:image/png;base64,${org.OrganizationAvatar}" style="width:80%; height: 60px">
+                    </div>
+                    <div class="col-md-3">
+                        <a class="nav-item" href="/organization?id=${org.UUID}"> ${org.OrganizationName} </a>
+                    </div>
                 </div>
-                <div class="col-md-5">
-                    <a class="btn btn-outline-danger btn-sm">Delete organization</a>
-                </div>
-            </div>
-        `;
+            `;
         orgsField.appendChild(orgField);
     }
 }
 
-url_getOrgs = "http://localhost:8010/proxy/orgs/mine";
+function delOrganization(orgId) {
+    fetch(`http://localhost:8010/proxy/orgs/leave?org_uuid=${orgId}`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+    })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            if (data.status == "success") {
+                window.location.href = "/profile?id=me";
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+if (userId == "me") {
+    url_getOrgs = "http://localhost:8010/proxy/orgs/mine";
+} else {
+    url_getOrgs = `http://localhost:8010/proxy/orgs/user?user_uuid=${userId}`;
+}
 fetch(url_getOrgs, {
     method: "GET",
     mode: "cors",
@@ -112,28 +163,6 @@ fetch(url_getOrgs, {
     .catch(function (error) {
         console.log(error);
     });
-
-url_getOrgs = "http://localhost:8010/proxy/orgs/mine";
-fetch(
-    url_getOrgs,
-    {
-        method: "GET",
-        mode: "cors",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        },
-    }
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
-);
 
 document.getElementById("button-edit").addEventListener("click", function () {
     window.location.href = "/profile/edit";

@@ -40,6 +40,26 @@ function login() {
         .catch(function (error) {
             console.log(error);
         });
+
+    // url_bearer = "http://localhost:8010/proxy/profile/me";
+    // fetch(url_bearer, {
+    //     method: "GET",
+    //     mode: "cors",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //         Authorization: `bearer ${localStorage.getItem("accessToken")}`,
+    //     },
+    // })
+    //     .then(function (response) {
+    //         return response.json();
+    //     })
+    //     .then(function (data) {
+    //         console.log(data);
+    //         localStorage.setItem("userId", JSON.stringify(data.UUID));
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     });
 }
 
 document.getElementById("loginButton").onclick = login;

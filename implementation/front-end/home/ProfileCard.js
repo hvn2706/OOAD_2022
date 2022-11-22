@@ -40,7 +40,7 @@ $(document).ready(function () {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
+            localStorage.setItem("userId", data.UUID);
             let profileCard = createProfileCard(data);
             document
                 .getElementById("profileContainer")
@@ -49,6 +49,70 @@ $(document).ready(function () {
             document
                 .getElementById("to-my-profile")
                 .addEventListener("click", toMyProfile);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+});
+
+fetch("http://localhost:8010/proxy/orgs/mine", {
+    method: "GET",
+    mode: "cors",
+    headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${localStorage.getItem("accessToken")}`,
+    },
+})
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        let organizations = data;
+        let organizationsContainer = document.getElementById("organizations");
+
+        for (let i = 0; i < organizations.length; i++) {
+            let orgOption = `<option value="${organizations[i].UUID}">${organizations[i].OrganizationName}</option>`;
+            organizationsContainer.innerHTML += orgOption;
+        }
+    });
+
+document.getElementById("submit").addEventListener("click", function () {
+    orgUUID = document.getElementById("organizations").value;
+
+    if (orgUUID == "none") {
+        alert("Please select an organization to create a job description");
+        return;
+    }
+
+    let jobDescription = {
+        PostTitle: document.getElementById("title").value,
+        PostRichContent: document.getElementById("rich-content").value,
+        PostOrganization: orgUUID,
+    };
+
+    fetch("http://localhost:8010/proxy/post/new", {
+        method: "POST",
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(jobDescription),
+    })
+        .then(function (response) {
+            if (response.status == 200) {
+                alert("Job description created successfully");
+                window.location.href = "/home";
+            } else {
+                alert(
+                    "Something went wrong, can't create new job description!"
+                );
+            }
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            // window.location.href = "/home";
         })
         .catch(function (error) {
             console.log(error);
